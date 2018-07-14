@@ -19,10 +19,11 @@ namespace Pasty.Api.Services
             return entity.Content;
         }
 
-        public async Task StorePaste(PasteDto dto)
+        public async Task<string> StorePaste(PasteDto dto)
         {
             var entity = new PasteEntity(dto);
             await this.tableService.InsertAsync(entity);
+            return entity.RowKey;
         }
     }
 }

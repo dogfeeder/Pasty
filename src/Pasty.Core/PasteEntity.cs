@@ -5,16 +5,11 @@ namespace Pasty.Core
 
     public class PasteEntity : TableEntity
     {
-        public PasteEntity()
+        public PasteEntity(PasteDto dto)
         {
             this.PartitionKey = nameof(PasteEntity);
             this.RowKey = Guid.NewGuid().ToString();
             this.Created = DateTime.Now;
-        }
-
-        public PasteEntity(PasteDto dto)
-        : base()
-        {
             this.Content = dto.Content;
         }
 

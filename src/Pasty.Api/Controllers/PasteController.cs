@@ -28,10 +28,10 @@ namespace Pasty.Api.Controllers
 
         // POST api/paste
         [HttpPost]
-        public IActionResult Post([FromBody] PasteDto dto)
+        public async Task<IActionResult> Post([FromBody] PasteDto dto)
         {
-            this.pastService.StorePaste(dto);
-            return Ok();
+            var result = await this.pastService.StorePaste(dto);
+            return Ok(result);
         }
     }
 }
