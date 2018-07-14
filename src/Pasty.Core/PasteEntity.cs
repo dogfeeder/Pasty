@@ -5,6 +5,10 @@ namespace Pasty.Core
 
     public class PasteEntity : TableEntity
     {
+        public PasteEntity()
+        {
+        }
+
         public PasteEntity(PasteDto dto)
         {
             this.PartitionKey = nameof(PasteEntity);

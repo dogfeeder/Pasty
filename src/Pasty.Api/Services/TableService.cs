@@ -22,7 +22,7 @@ namespace Pasty.Api.Services
 
         public async Task<T> GetAsync(string partitionKey, string rowKey)
         {
-            TableOperation retrieve = TableOperation.Retrieve(partitionKey, rowKey);
+            TableOperation retrieve = TableOperation.Retrieve<T>(partitionKey, rowKey);
             var result = await this.pasteTable.ExecuteAsync(retrieve);
             return (T)result.Result;
         }

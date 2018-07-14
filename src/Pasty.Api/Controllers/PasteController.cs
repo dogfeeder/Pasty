@@ -21,9 +21,9 @@ namespace Pasty.Api.Controllers
 
         // GET api/paste/5
         [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return Ok(this.pastService.GetPasteAsync(id));
+            return Ok(await this.pastService.GetPasteAsync(id));
         }
 
         // POST api/paste
