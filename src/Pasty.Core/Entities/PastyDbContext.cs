@@ -4,6 +4,6 @@ namespace Pasty.Core.Entities
 
     public class PastyDbContext : DbContext
     {
-
+        DbSet<Paste> Pastes { get; set; }
     }
 }
