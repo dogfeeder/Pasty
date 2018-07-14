@@ -10,6 +10,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="SeriLog" Version="2.7.1" />
+    <PackageReference Include="SeriLog.Sinks.console" Version="3.1.1" />
+    <PackageReference Include="SeriLog.Sinks.seq" Version="4.0.0" />
+    <PackageReference Include="stylecop" Version="5.0.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pasty.Core\Pasty.Core.csproj" />
   </ItemGroup>
 
 </Project>
