@@ -12,12 +12,12 @@ namespace Pasty.Api.Services
 
         private CloudTable pasteTable;
 
-        public TableService(string connectionString)
+        public TableService()
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("UseDevelopmentStorage=true");
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-            pasteTable.CreateIfNotExistsAsync();
             this.pasteTable = tableClient.GetTableReference(tableName);
+            pasteTable.CreateIfNotExistsAsync();
         }
 
         public async Task<T> GetAsync(string partitionKey, string rowKey)

@@ -5,6 +5,8 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Pasty.Api.Services;
+    using Pasty.Core;
     using Serilog;
 
     public class Startup
@@ -19,6 +21,8 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<ITableService<PasteEntity>, TableService<PasteEntity>>();
+            services.AddTransient<IPasteService, PasteService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
